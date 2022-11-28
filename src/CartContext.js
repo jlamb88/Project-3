@@ -10,6 +10,7 @@ export const CartContext = createContext({
     getTotalCost: () => {}
 });
 
+// contains all the major functions for product and cart functionality
 export function CartProvider({children}) {
     const [cartProducts, setCartProducts] = useState([]);
     
