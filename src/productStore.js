@@ -18,10 +18,10 @@ const productArray = [
     }
 ];
 
-function getProduct (id) {
+function getProductData (id) {
     let productData = productArray.find(product => product.id === id);
 
-    if (productData == undefined) {
+    if (productData === undefined) {
         console.log('Product not found for id: ' + id);
         return undefined;
     }
@@ -29,4 +29,4 @@ function getProduct (id) {
     return productData;
 };
 
-export { productArray, getProduct };
+export { productArray, getProductData };
