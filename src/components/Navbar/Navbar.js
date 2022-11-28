@@ -27,7 +27,22 @@ function NavComponent() {
                     <Modal.Title>Shopping Cart</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h1>This is the modal body</h1>
+                    {/* If there are products, map over current */}
+                    { productCount > 0 ?
+                        <div>
+                            <p>In Cart: </p>
+                            { cart.items.map((currentProduct, index) => (
+                                <h2>{currentProduct.id}</h2>
+                            ))}
+                            <h2>Total: { cart.getTotalCost() }</h2>
+
+                            <Button variant='success'>Checkout</Button>
+                        </div>
+                    :
+                        <div>
+                            <p>Your Cart Is Empty!</p>
+                        </div>
+                    }
                 </Modal.Body>
             </Modal>
         </div>
