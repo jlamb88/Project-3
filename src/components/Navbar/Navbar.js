@@ -9,9 +9,8 @@ function NavComponent() {
     const handleClose = () => setShow(false);
 
     // adds up all product.quantity to show total amount of products in cart
-    // seems not to be working yet.... 
     const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
-
+    console.log(cart);
     return (
         <div>
             <Navbar expand='sm'>
