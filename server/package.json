@@ -5,13 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "start": "node server.js",
     "watch": "nodemon",
     "seed": "node seeders/seed.js"
-=======
-    "start": "node server.js"
->>>>>>> 50a0793ee4ed4582d59f4205ca821fe7023aaa7e
   },
   "keywords": [],
   "author": "",
