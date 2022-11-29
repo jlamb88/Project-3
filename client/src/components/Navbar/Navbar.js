@@ -1,6 +1,7 @@
 import { Button, Navbar, Modal } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import { CartContext } from '../../CartContext';
+import CartProduct from '../CartProduct/CartProduct';
 
 function NavComponent() {
     const cart = useContext(CartContext);
@@ -32,9 +33,11 @@ function NavComponent() {
                         <div>
                             <p>In Cart: </p>
                             { cart.items.map((currentProduct, index) => (
-                                <h2>{currentProduct.id}</h2>
+                                // gives product info to the cart modal to display
+                                <CartProduct key={index} id={currentProduct.id} quantity={currentProduct.quantity}>Total</CartProduct>
                             ))}
-                            <h2>Total: { cart.getTotalCost() }</h2>
+                            {/* total cost limited to 2 decimals */}
+                            <h2>Total: ${ cart.getTotalCost().toFixed(2) }</h2>
 
                             <Button variant='success'>Checkout</Button>
                         </div>
