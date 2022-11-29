@@ -14,16 +14,21 @@ function NavComponent() {
     console.log(cart);
     return (
         <div>
-            <Navbar expand='sm'>
+            <Navbar bg='light' expand='sm'>
                 <Navbar.Brand href='/'>
-                    E-Commerce Store
+                    Cheesecake Fact'ry
                 </Navbar.Brand>
+								<Navbar.Brand href='/about'>
+									About
+								</Navbar.Brand>
+								<Navbar.Brand href='/login'>
+									Login
+								</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className='justify-content-end'>
                     <Button onClick={handleShow}> Cart ({ productCount }) </Button>
                 </Navbar.Collapse>
-            </Navbar>
-            <Modal show={show} onHide={handleClose}>
+								<Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Shopping Cart</Modal.Title>
                 </Modal.Header>
@@ -48,6 +53,7 @@ function NavComponent() {
                     }
                 </Modal.Body>
             </Modal>
+            </Navbar>
         </div>
     );
 };
