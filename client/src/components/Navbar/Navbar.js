@@ -37,7 +37,7 @@ function NavComponent() {
                                 <CartProduct key={index} id={currentProduct.id} quantity={currentProduct.quantity}>Total</CartProduct>
                             ))}
                             {/* total cost limited to 2 decimals */}
-                            <h2>Total: { cart.getTotalCost().toFixed(2) }</h2>
+                            <h2>Total: ${ cart.getTotalCost().toFixed(2) }</h2>
 
                             <Button variant='success'>Checkout</Button>
                         </div>
