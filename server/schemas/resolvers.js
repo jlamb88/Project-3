@@ -1,15 +1,9 @@
-const { } = require('apollo-server-express');
-const { } = require('../models');
-const { signToken } = require('../utils/auth');
+const { User, Product, Order, Comment } = require('../models/')
 
 const resolvers = {
-  Query: {
-
-  },
-
-  Mutation: {
-
-  },
-};
-
-module.exports = resolvers;
+    Query: {
+        user: async () => {
+            return await User.find({})
+        }
+    }
+}

@@ -7,21 +7,24 @@ import Store from './pages/Store';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import Login from './pages/Login'
+import CartProvider from './CartContext';
 
 function App() {
   return (
-    <Container>
-      <NavComponent></NavComponent>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Store />} />
-          <Route path='success' element={<Success />} />
-          <Route path='cancel' element={<Cancel />} />
-          <Route path='login' element={<Login />} />
+    <CartProvider>
+      <Container>
+        <NavComponent></NavComponent>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Store />} />
+            <Route path='success' element={<Success />} />
+            <Route path='cancel' element={<Cancel />} />
+            <Route path='login' element={<Login />} />
         </Routes>
-      </BrowserRouter>
-    </Container>
+        </BrowserRouter>
+      </Container>
+    </CartProvider>
   );
-}
+};
 
 export default App;
