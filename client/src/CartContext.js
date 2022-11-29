@@ -64,11 +64,12 @@ export function CartProvider({children}) {
     function getTotalCost() {
         let totalCost = 0;
 
+        // eslint-disable-next-line
         cartProducts.map((cartItem) => {
             const productData = getProductData(cartItem.id);
             totalCost += (productData.price * cartItem.quantity);
-            return totalCost;
         });
+        return totalCost;
     };
 
     const contextValue = {
