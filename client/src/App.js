@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //PAGES
 import Home from './pages/Home';
+import UserPage from './pages/UserPage'
 
 //CSS
 import './App.css';
@@ -16,6 +17,7 @@ import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import CartProvider from './CartContext';
 import NavComponent from './components/Navbar/Navbar';
+
 
 function App() {
  
@@ -30,7 +32,8 @@ function App() {
             <Route path='success' element={<Success />} />
             <Route path='cancel' element={<Cancel />} />
 						<Route path='store' element={<Store />} />
-					</Routes>
+            <Route path='user' element={<UserPage />} />
+ 					</Routes>
         </BrowserRouter>
       </Container>
     </CartProvider>
