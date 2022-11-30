@@ -45,15 +45,28 @@ const UserPage = () => {
     }}
 
     const Logout = () => {
-        setUser({email:"", password:""})
+        setUser({...user})
     }
-
+    const isDefault = () => {
+            if (user.payment.default){
+        return ('yes')
+    }
+}
+    const lastFour = user.payment.card_number.slice(-4)
+    
     return(
         <div>
             {(user.email !=="") ? (
-                <div className="welcome">
-                    <h2>Welcome, <span>{user.email}!</span></h2>
-                    <button onClick={Logout} >Logout</button>
+                <div>
+                    <div className="welcome">
+                        <h2>Welcome, <span>{user.first_name}!</span></h2>
+                        <button onClick={Logout} >Logout</button>
+                    </div>
+                    <div>
+                        <h3>{user.first_name} {user.last_name}</h3>
+                        <p>{user.payment.card_type}  {user.payment.expiration}</p>
+                        <p>**** **** **** {lastFour} {isDefault}</p>
+                    </div>
                 </div>
             ):(
                 <div>
