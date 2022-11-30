@@ -5,10 +5,10 @@ type User {
     _id: ID
     firstName: String
     lastName: String
-    address: String
+    streetAddress: String
     city: String
     state: String
-    phone: Int
+    phone: Float
     email: String
     password: String
     payment: [Payment]
@@ -16,7 +16,7 @@ type User {
 
 type Payment {
     cardType: cardTypeEnum
-    cardNumber: Int
+    cardNumber: Float
     expiration: String
     default: Boolean
 }
@@ -43,17 +43,19 @@ type Order {
     total: Int
     user: [User]
     products: [Product]
-    orderedAt: DateTime
+    orderedAt: String
     transId: Int
 }
 
 type Comment {
+    name: String
     text: String
     rating: Int
+    dateAdded: String
 }
 
 type Cart {
-    user: ID!
+    user: [User]
     product: [Product]
     quantity: Int
 }
@@ -63,7 +65,6 @@ type Auth {
     user: User
 }
 
-# STRIPE checkout type
 type Checkout {
     transId: ID
 }
@@ -71,53 +72,68 @@ type Checkout {
 input userPayment {
     _id: ID
     cardType: cardTypeEnum!
-    cardNumber: Int!
+    cardNumber: Float!
     expiration: String!
     default: Boolean
 }
 
 type Query {
     user(_id: ID!): User
-    products: [Product]!
+    users: [User]
+    products: [Product]
     product(_id: ID!): Product
     order(userId: ID!): Order
     cart(userId: ID!): Cart
+    checkout(products: [ID]!): Checkout
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(
-        firstName: String
+        firstName: String 
         lastName: String
-        address: String
+        streetAddress: String
+        city: String
         state: String
         zipcode: Int
-        phone: Int
+        phone: Float
         email: String!
-        password: String!): User
-    addOrder(userId: ID, products: [ID]!, total:Int, transId): Order
+        password: String!
+        ): User
+    addOrder(
+        userId: ID, 
+        products: [ID]!, 
+        total:Int, 
+        transId: Int): Order
     updateUser(
         firstName: String
         lastName: String
-        address: String
+        streetAddress: String
+        city: String
         state: String
         zipcode: Int
         phone: Int
         email: String!
         password: String!
-    ):User
+        ):User
     addPayment(
         content: userPayment
     ):User
     updatePayment(
-        content: userPayment
+        _id:ID!, content: userPayment
     ):User
     deletePayment(_id:ID!, payId:ID!):User
     addComment(
         _id:ID!
+        name: String!
         text: String!
         rating: Int
         ):Product
+    addCart(
+        userId: ID!
+        product: [ID]!
+        quantity: Int
+    ):Cart
     updateCartItems(
         userID: ID!
         productID: ID!

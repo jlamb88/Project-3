@@ -7,6 +7,9 @@ const resolvers = {
         user: async (parent, userId) => {
             return await User.findOne({ _id: userId })
         },
+        users: async () => {
+            return await User.find({})
+        },
         products: async () => {
             return await Product.find({})
         },
@@ -56,8 +59,8 @@ const resolvers = {
         }
     },
     Mutation: {
-        addUser: async (parent, { firstName, lastName, address, state, zipcode, phone, email, password }) => {
-            return await User.create({ firstName, lastName, address, state, zipcode, phone, email, password })
+        addUser: async (parent, { firstName, lastName, streetAddress, city, state, zipcode, phone, email, password }) => {
+            return await User.create({ firstName, lastName, streetAddress, city, state, zipcode, phone, email, password })
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email })
@@ -76,13 +79,13 @@ const resolvers = {
 
             return { token, user }
         },
-        addOrder: async (parent, { user, products, total }, context) => {
-            return await Order.create({ user, products, total, transId })
+        addOrder: async (parent, { userId, products, total, transId }, context) => {
+            return await Order.create({ userId, products, total, transId })
         },
-        updateUser: async (parent, { userId, firstName, lastName, address, state, zipcode, phone, email, password }) => {
+        updateUser: async (parent, { userId, firstName, lastName, streetAddress, city, state, zipcode, phone, email, password }) => {
             return await User.findOneAndUpdate(
                 { _id: userId },
-                { firstName, lastName, address, state, zipcode, phone, email, password },
+                { firstName, lastName, streetAddress, city, state, zipcode, phone, email, password },
                 { new: true }
             )
         },
@@ -107,11 +110,16 @@ const resolvers = {
                 { $pull: { payment: { _id: payId } } }
             )
         },
-        addComment: async (parent, { productId, text, rating }) => {
+        addComment: async (parent, { productId, name, text, rating }) => {
             return await Product.findOneAndUpdate(
                 { _id: productId },
-                { $addToSet: { text, rating } },
+                { $addToSet: { name, text, rating } },
                 { new: true }
+            )
+        },
+        addCart: async (parent, { userId, product, quantity }) => {
+            return await Cart.create(
+                { userId, product, quantity }
             )
         },
         updateCartItems: async (parent, { userId, productId, quantity }) => {

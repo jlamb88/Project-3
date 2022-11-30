@@ -25,11 +25,18 @@ const productSchema = new Schema({
     ],
     comments: [
         {
+            name: {
+                type: String
+            },
             text: {
                 type: String
             },
             rating: {
                 type: Number
+            },
+            dateAdded: {
+                type: Date,
+                default: Date.now
             }
         }]
 })
