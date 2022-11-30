@@ -8,19 +8,10 @@ import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import CartProvider from './CartContext';
 import UserPage from './pages/UserPage'
-import LoginForm from './components/LoginForm'
-import React, {useState} from 'react'
-import Queries from './components/Queries'
+
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const details = LoginForm.details
-  const data = Queries
-  const handleLoggedIn = () => {
-      if (details.email === data.user.email && details.password === data.user.password){
-          setLoggedIn(true)
-      }
-  }
+ 
   return (
     <CartProvider>
       <Container>

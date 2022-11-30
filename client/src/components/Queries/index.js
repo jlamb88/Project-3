@@ -1,4 +1,5 @@
-import {gql, useQuerey} from '@apollo/client'
+import {gql} from '@apollo/client'
+// , useQuerey
 
 const GET_USER = gql`
     query GetUser{
