@@ -58,11 +58,6 @@ const userSchema = new Schema({
             type: String,
             match: [/^([d]{2})\/([d]{2})$/]
         },
-        cvc_no: {
-            type: Number,
-            minlength: 3,
-            maxlength: 4
-        },
         default: {
             type: Boolean
         }

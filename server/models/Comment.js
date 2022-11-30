@@ -13,6 +13,10 @@ const commentSchema = new Schema({
     product_id: {
         type: Schema.Types.ObjectID,
         ref: 'product'
+    },
+    dateAdded: {
+        type: Date,
+        default: Date.now
     }
 })
 

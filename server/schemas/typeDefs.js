@@ -15,11 +15,17 @@ type User {
 }
 
 type Payment {
-    cardType: String
+    cardType: cardTypeEnum
     cardNumber: Int
     expiration: String
-    cvcNo: Int
     default: Boolean
+}
+
+enum cardTypeEnum {
+    VISA
+    MASTERCARD
+    AMERICAN EXPRESS
+    DISCOVER
 }
 
 type Product {
@@ -29,7 +35,7 @@ type Product {
     price: Int
     quantity: Int
     allergens: [String]
-    comment: [Comment]
+    comments: [Comment]
 }
 
 type Order {
@@ -37,21 +43,93 @@ type Order {
     total: Int
     user: [User]
     products: [Product]
-    orderedAt: String
-    transID: Int
+    orderedAt: DateTime
+    transId: Int
 }
 
 type Comment {
     text: String
     rating: Int
-    productId: ID
+}
+
+type Cart {
+    user: ID!
+    product: [Product]
+    quantity: Int
+}
+
+type Auth {
+    token: ID!
+    user: User
+}
+
+# STRIPE checkout type
+type Checkout {
+    transId: ID
+}
+
+input userPayment {
+    _id: ID
+    cardType: cardTypeEnum!
+    cardNumber: Int!
+    expiration: String!
+    default: Boolean
 }
 
 type Query {
-    user(userID: ID!): User
+    user(_id: ID!): User
     products: [Product]!
-    product(productId: ID!): Product
+    product(_id: ID!): Product
     order(userId: ID!): Order
+    cart(userId: ID!): Cart
 }
-`
+
+type Mutation {
+    addUser(
+        firstName: String
+        lastName: String
+        address: String
+        state: String
+        zipcode: Int
+        phone: Int
+        email: String!
+        password: String!
+    ):User
+    login(email: String!, password: String!): Auth
+    addOrder(userId: ID, products: [ID]!, total:Int, transId): Order
+    updateUser(
+        firstName: String
+        lastName: String
+        address: String
+        state: String
+        zipcode: Int
+        phone: Int
+        email: String!
+        password: String!
+    ):User
+    addPayment(
+        content: userPayment
+    ):User
+    updatePayment(
+        content: userPayment
+    ):User
+    deletePayment(_id:ID!, payId:ID!):User
+    addComment(
+        _id:ID!
+        text: String!
+        rating: Int
+        ):Product
+    updateCartItems(
+        userID: ID!
+        productID: ID!
+        quantity: Int
+    ):Cart
+    deleteCartItem(
+        userID: ID!
+        productID: ID!
+    ):Cart
+
+}`
+
+
 module.exports = typeDefs
