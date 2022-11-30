@@ -11,6 +11,7 @@ const commentSchema = new Schema({
         max: 5
     },
     productId: {
+
         type: Schema.Types.ObjectID,
         ref: 'product'
     },

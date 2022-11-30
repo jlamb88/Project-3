@@ -1,12 +1,21 @@
+//DEPENDENCIES
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+//PAGES
+import Home from './pages/Home';
+
+//CSS
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavComponent from './components/Navbar/Navbar';
 import { Container } from 'react-bootstrap';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+//COMPONENTS
 import Store from './pages/Store';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import CartProvider from './CartContext';
+import NavComponent from './components/Navbar/Navbar';
 
 function App() {
   return (
@@ -15,10 +24,12 @@ function App() {
         <NavComponent></NavComponent>
         <BrowserRouter>
           <Routes>
-            <Route index element={<Store />} />
+            <Route path='/' element={<Home />} />
+						<Route path='/store' element={<Store />} />
             <Route path='success' element={<Success />} />
             <Route path='cancel' element={<Cancel />} />
-          </Routes>
+						<Route path='store' element={<Store />} />
+					</Routes>
         </BrowserRouter>
       </Container>
     </CartProvider>

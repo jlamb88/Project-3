@@ -89,6 +89,7 @@ type Query {
 
 type Mutation {
     login(email: String!, password: String!): Auth
+
     addUser(
         firstName: String 
         lastName: String
@@ -100,11 +101,13 @@ type Mutation {
         email: String!
         password: String!
         ): User
+  
     addOrder(
         userId: ID, 
         products: [ID]!, 
         total:Int, 
         transId: Int): Order
+  
     updateUser(
         firstName: String
         lastName: String
@@ -116,29 +119,37 @@ type Mutation {
         email: String!
         password: String!
         ):User
+
     addPayment(
         content: userPayment
     ):User
+   
     updatePayment(
         _id:ID!, content: userPayment
+
     ):User
+    
     deletePayment(_id:ID!, payId:ID!):User
+    
     addComment(
         _id:ID!
         name: String!
         text: String!
         rating: Int
         ):Product
+   
     addCart(
         userId: ID!
         product: [ID]!
         quantity: Int
     ):Cart
+
     updateCartItems(
         userID: ID!
         productID: ID!
         quantity: Int
     ):Cart
+    
     deleteCartItem(
         userID: ID!
         productID: ID!
