@@ -9,6 +9,23 @@ function NavComponent() {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
+    // checkout function for checkout button w/ POST route.
+    const checkout = async () => {
+        await fetch('http://localhost:3000/checkout' , { // this address will need to change
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({items: cart.items})
+        }).then((response) => {
+            return response.json();
+        }).then((response) => {
+            if(response.url) {
+                window.location.assign(response.url) // sends user to Stripe
+            }
+        });
+    };
+
     // adds up all product.quantity to show total amount of products in cart
     const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
     console.log(cart);
@@ -43,8 +60,8 @@ function NavComponent() {
                             ))}
                             {/* total cost limited to 2 decimals */}
                             <h2>Total: ${ cart.getTotalCost().toFixed(2) }</h2>
-
-                            <Button variant='success'>Checkout</Button>
+                            {/* checkout button */}
+                            <Button variant='success' onClick={checkout}>Checkout</Button>
                         </div>
                     :
                         <div>
