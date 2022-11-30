@@ -85,6 +85,7 @@ type Query {
 }
 
 type Mutation {
+    login(email: String!, password: String!): Auth
     addUser(
         firstName: String
         lastName: String
@@ -93,9 +94,7 @@ type Mutation {
         zipcode: Int
         phone: Int
         email: String!
-        password: String!
-    ):User
-    login(email: String!, password: String!): Auth
+        password: String!): User
     addOrder(userId: ID, products: [ID]!, total:Int, transId): Order
     updateUser(
         firstName: String
