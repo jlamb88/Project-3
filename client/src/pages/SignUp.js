@@ -52,7 +52,9 @@ const [SignUp, setSignUp] = () => {
                 <label htmlFor="zipcode">Zip Code: </label>
                 <input type="number" name="zipcode" onChange={e => setSignUp({...SignUp, zipcode: e.target.value})} value={SignUp.zipcode} />
             </div>
-
+            <div>
+                <input type="submit" value="SignUp" />
+            </div>
             
         </div>
     )

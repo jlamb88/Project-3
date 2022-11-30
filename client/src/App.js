@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //PAGES
 import Home from './pages/Home';
-import UserPage from './pages/UserPage'
+import UserPage from './pages/UserPage';
+import SignUp from './pages/SignUp';
 
 //CSS
 import './App.css';
@@ -32,7 +33,8 @@ function App() {
             <Route path='success' element={<Success />} />
             <Route path='cancel' element={<Cancel />} />
 						<Route path='store' element={<Store />} />
-            <Route path='user' element={<UserPage />} />
+            <Route path='/user' element={<UserPage />} />
+            <Route path='/signup' element={<SignUp />} />
  					</Routes>
         </BrowserRouter>
       </Container>
