@@ -25,8 +25,12 @@ const productSchema = new Schema({
     ],
     comments: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'comment'
+            text: {
+                type: String
+            },
+            rating: {
+                type: Number
+            }
         }]
 })
 
