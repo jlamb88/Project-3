@@ -48,13 +48,14 @@ const resolvers = {
 
             // stripe checkout
             const session = await stripe.checkout.sessions.create({
+                payment_method_types: ['card'],
                 line_items,
                 mode: 'payment',
                 success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${url}/`
+                cancel_url: `${url}/cancel`
             });
 
-            return { transId: session.id };
+            return { session: session.id };
         }
     },
     Mutation: {
