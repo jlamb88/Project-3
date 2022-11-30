@@ -38,6 +38,9 @@ function NavComponent() {
 								<Navbar.Brand href='/about'>
 									About
 								</Navbar.Brand>
+								<Navbar.Brand href='/store'>
+									Store
+								</Navbar.Brand>
 								<Navbar.Brand href='/login'>
 									Login
 								</Navbar.Brand>
