@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.post('/checkout', async (req, res) => {
   const items = req.body.items;
   let lineItems = [];
-  items.forEach((item) => {
+  items.forEach((item) => { // converts items to Stripe friendly format
       lineItems.push(
           {
               price: item.id,
@@ -42,14 +42,15 @@ app.post('/checkout', async (req, res) => {
       )
   });
 
+  // creates session with items that Stripe can now read
   const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: 'payment',
-      success_url: 'http://localhost:3000/success',
+      success_url: 'http://localhost:3000/success', // these addresses will need to change
       cancel_url: 'http://localhost:3000/success'
   });
 
-  res.send(JSON.stringify({
+  res.send(JSON.stringify({ // sends Stripe info back to front end
       url: session.url
   }));
 });
@@ -68,7 +69,3 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
 // Call the async function to start the server
 startApolloServer(typeDefs, resolvers);
-
-
-// Stripe 'Secret Key' to use later
-// sk_test_51M9WEeA0zgGYE8hKfLzdebUdsNrrjNE3SI2bkSS8NclVm5VXPYz0VglrMEMnmJnK4uKi3jsQvBEkHMaFZEpSJsLr00EcdyU0Ss
