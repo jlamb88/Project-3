@@ -31,13 +31,13 @@ function NavComponent() {
     console.log(cart);
     return (
         <div>
-            <Navbar bg='light' expand='sm'>
-                <Navbar.Brand href='/'>Cheesecake Fact'ry</Navbar.Brand>
+            <Navbar bg='transparent' expand='sm'>
+                <Navbar.Brand className='text-white' href='/'>Empire Cheesecake</Navbar.Brand>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
-                    <Navbar.Brand href='/about'>About</Navbar.Brand>
-                    <Navbar.Brand href='/store'>Store</Navbar.Brand>
-                    <Navbar.Brand href='/login'>Login</Navbar.Brand>
+                    <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
+                    <Navbar.Brand className='text-white' href='/store'>Store</Navbar.Brand>
+                    <Navbar.Brand className='text-white' href='/login'>Login</Navbar.Brand>
                     <Button onClick={handleShow}>Cart ({productCount}) </Button> 
                 </Navbar.Collapse>
 
