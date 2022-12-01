@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 
 //CSS
-import './App.css';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
 
@@ -19,6 +19,7 @@ import NavComponent from './components/Navbar/Navbar';
 
 function App() {
   return (
+		<div className='bg-parent'>
     <CartProvider>
       <Container>
         <NavComponent></NavComponent>
@@ -33,6 +34,7 @@ function App() {
         </BrowserRouter>
       </Container>
     </CartProvider>
+		</div>
   );
 };
 

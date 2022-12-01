@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg-parent {
+	position: relative; 
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  /* justify-content: top; */
+}
+
+/* pseudo elements*/
+.bg-parent::before {
+	content: "";
+	background-image: url(../public/background.jpg);
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.90;
+}
+h1, h2 {
+	position: relative;
+  color: #ffffff;  
+  font-size: 14rem;
+  line-height: 0.9;
+  text-align: center;
+}
