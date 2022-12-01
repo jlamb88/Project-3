@@ -10,13 +10,15 @@ const commentSchema = new Schema({
         min: 0,
         max: 5
     },
-    product_id: {
+    productId: {
+
         type: Schema.Types.ObjectID,
         ref: 'product'
     },
     dateAdded: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp)
     }
 })
 
