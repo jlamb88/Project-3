@@ -37,9 +37,10 @@ function App(details) {
             <Route path='cancel' element={<Cancel />} />
 						<Route path='store' element={<Store />} />
             <Route path='/user' element={<UserPage />} />
-            <Route path='/signup' element={<SignUp />} />
- 						<Route path='about' element={<About />} />
+            {/* <Route path='/signup' element={<SignUp />} /> */}
+          <Route path='about' element={<About />} />
 					</Routes>
+
         </BrowserRouter>
       </Container>
     </CartProvider>
