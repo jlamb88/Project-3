@@ -68,3 +68,7 @@ div.card {
 	background: rgba(80, 80, 80, .25);
 	color: antiquewhite;
 }
+
+.modal.dialog {
+	background: rgba(80, 80, 80, .25);
+}

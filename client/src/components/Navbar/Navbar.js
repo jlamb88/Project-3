@@ -38,7 +38,7 @@ function NavComponent() {
                     <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/store'>Store</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/login'>Login</Navbar.Brand>
-                    <Button onClick={handleShow}>Cart ({productCount}) </Button> 
+                    <Button variant='secondary' onClick={handleShow}>Cart ({productCount}) </Button> 
                 </Navbar.Collapse>
 
                 <Modal show={show} onHide={handleClose}>
