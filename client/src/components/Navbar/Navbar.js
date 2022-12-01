@@ -61,7 +61,7 @@ function NavComponent() {
                                 <Button variant='success' onClick={checkout}>Checkout</Button>
                             </div>
                             :
-                            <div>
+                            <div className='modalText'>
                                 <p>Your Cart Is Empty!</p>
                             </div>
                         }
