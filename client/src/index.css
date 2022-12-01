@@ -34,7 +34,7 @@ code {
 }
 h1, h2 {
 	position: relative;
-  color: #ffffff;  
+  color: antiquewhite;  
   font-size: 14rem;
   line-height: 0.9;
   text-align: center;
@@ -54,7 +54,6 @@ img {
 .totalh2 {
 	display: flex;
 	color: black;
-	position: absolute;
 }
 
 .about-p {
@@ -62,5 +61,10 @@ img {
 	top: 450px;
 	left: 200px;
 	
-	color: white;
+	color: antiquewhite;
+}
+
+div.card {
+	background: rgba(80, 80, 80, .25);
+	color: antiquewhite;
 }
