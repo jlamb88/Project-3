@@ -34,11 +34,11 @@ function NavComponent() {
             <Navbar bg='transparent' expand='sm'>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
-					<Navbar.Brand className='text-white' href='/'>Home</Navbar.Brand>
-                    <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
-                    <Navbar.Brand className='text-white' href='/store'>Store</Navbar.Brand>
-                    <Navbar.Brand className='text-white' href='/login'>Login</Navbar.Brand>
-                    <Button onClick={handleShow}>Cart ({productCount}) </Button> 
+					<Navbar.Brand className='navbarText' href='/'>Home</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/about'>About</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/store'>Store</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/login'>Login</Navbar.Brand>
+                    <Button variant='secondary' className='navbarText' onClick={handleShow}>Cart ({productCount}) </Button> 
                 </Navbar.Collapse>
 
                 <Modal show={show} onHide={handleClose}>

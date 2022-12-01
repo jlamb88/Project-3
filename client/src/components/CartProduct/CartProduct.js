@@ -12,10 +12,10 @@ function CartProduct(props) {
 
     return (
         <div>
-            <h3>{ productData.name }</h3>
+            <h4>{ productData.name }</h4>
             <p>Qty: { quantity }</p>
-            <p>${ (quantity * productData.price) }</p>
-            <Button size='sm' onClick={ () => cart.deleteFromCart(id) }>Remove</Button>
+            <h4>${ (quantity * productData.price) }</h4>
+            <Button variant='danger' size='sm' onClick={ () => cart.deleteFromCart(id) }>Remove</Button>
         </div>
     );
 };
