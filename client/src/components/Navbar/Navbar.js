@@ -34,21 +34,21 @@ function NavComponent() {
             <Navbar bg='transparent' expand='sm'>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
-					<Navbar.Brand className='navbarText' href='/'>Home</Navbar.Brand>
+										<Navbar.Brand className='navbarText' href='/'>Home</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/about'>About</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/store'>Store</Navbar.Brand>
-                    <Navbar.Brand className='navbarText' href='/login'>Login</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/user'>Login</Navbar.Brand>
                     <Button variant='secondary' className='navbarText' onClick={handleShow}>Cart ({productCount}) </Button> 
                 </Navbar.Collapse>
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Shopping Cart</Modal.Title>
+                        <Modal.Title className='modalTitleText'>Shopping Cart</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {/* If there are products, map over current, else show cart is empty */}
                         {productCount > 0 ?
-                            <div>
+                            <div className='modalText'>
                                 <p>In Cart: </p>
                                 {cart.items.map((currentProduct, index) => (
                                     // gives product info to the cart modal to display
@@ -61,7 +61,7 @@ function NavComponent() {
                                 <Button variant='success' onClick={checkout}>Checkout</Button>
                             </div>
                             :
-                            <div>
+                            <div className='modalText'>
                                 <p>Your Cart Is Empty!</p>
                             </div>
                         }

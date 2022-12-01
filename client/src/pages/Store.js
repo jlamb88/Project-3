@@ -6,7 +6,6 @@ function Store() {
     return (
         <div>
             <h1 align='center' className='p-3'>
-                Cake?!
             </h1>
             <Row xs={1} md={3} className='g-4'>
                 {productArray.map((product, index) => (
