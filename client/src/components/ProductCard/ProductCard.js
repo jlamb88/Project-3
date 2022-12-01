@@ -6,12 +6,12 @@ function ProductCard (props) {
     const product = props.product;
     const cart = useContext(CartContext);
     const productQuantity = cart.getProductQuantity(product.id);
-    // console.log(cart.items);
+    console.log(product.image);
 
     return (
         <Card >
             <Card.Body >
-                <Card.Img as={Image} src={product.image} fluid={true} alt='Card image' />
+                <Card.Img variant="top" src={product.image} />
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>${product.price}</Card.Text>
                 {/* checks product quantity to determine which buttons to show */}
