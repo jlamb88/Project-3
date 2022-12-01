@@ -1,12 +1,3 @@
- // https://imgur.com/ZbDQmJm
- // https://imgur.com/bH5wiLs
- // https://imgur.com/SotYiMT
- // https://imgur.com/1rjD49H
- // https://imgur.com/11DsKcC
- // https://imgur.com/RqWj8pD
-
-
-// this will be converted to models
 const productArray = [
     {
         id: 'price_1M9Xq4A0zgGYE8hKjaEdjfu0',

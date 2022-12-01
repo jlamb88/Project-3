@@ -1,4 +1,4 @@
-import { Card, Button, Image, Form, Row, Col } from 'react-bootstrap';
+import { Card, Button, Form, Row, Col } from 'react-bootstrap';
 import { CartContext } from "../../CartContext";
 import { useContext } from 'react';
 
