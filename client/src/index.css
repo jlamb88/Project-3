@@ -55,7 +55,7 @@ img {
 
 .totalh2 {
   display: flex;
-  color: black;
+  color: antiquewhite;
 }
 
 .about-p {
@@ -70,14 +70,19 @@ div.card {
   color: antiquewhite;
 }
 
-.modal.dialog {
-  background: rgba(80, 80, 80, 0.25);
+div.modal-header {
+	background: antiquewhite;
+}
+
+div.modal-content {
+	background: rgba(80, 80, 80, 0.75) 
 }
 
 a.navbarText,
 button.navbarText,
-button.btn {
-	color: antiquewhite
+button.btn,
+.modalText {
+	color: antiquewhite;
 }
 
 .login-page {
