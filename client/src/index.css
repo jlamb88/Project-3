@@ -1,19 +1,19 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .bg-parent {
-	position: relative; 
+  position: relative;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -22,20 +22,60 @@ code {
 
 /* pseudo elements*/
 .bg-parent::before {
-	content: "";
-	background-image: url(../public/background.jpg);
-	background-size: cover;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	opacity: 0.90;
+  content: "";
+  background-image: url(../public/background.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.9;
 }
-h1, h2 {
-	position: relative;
-  color: #ffffff;  
+
+h1,
+h2 {
+  position: relative;
+  color: antiquewhite;
   font-size: 14rem;
   line-height: 0.9;
   text-align: center;
+}
+
+.storyh1 {
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  top: 400px;
+}
+
+img {
+  position: relative;
+}
+
+.totalh2 {
+  display: flex;
+  color: black;
+}
+
+.about-p {
+  position: absolute;
+  top: 450px;
+  left: 200px;
+  color: antiquewhite;
+}
+
+div.card {
+  background: rgba(80, 80, 80, 0.25);
+  color: antiquewhite;
+}
+
+.modal.dialog {
+  background: rgba(80, 80, 80, 0.25);
+}
+
+a.navbarText,
+button.navbarText,
+button.btn {
+	color: antiquewhite
 }
