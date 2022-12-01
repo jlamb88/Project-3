@@ -87,3 +87,17 @@ button.btn {
 label {
 	color: antiquewhite;
 }
+
+.sign-up{
+  position: absolute;
+  display: flex;
+  flex-direction: column
+}
+.form{
+  padding:5px;
+  text-align: center;
+  justify-self: center;
+}
+.user-page{
+  position:absolute;
+}

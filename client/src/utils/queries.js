@@ -19,7 +19,7 @@ query products {
   }`
 
 export const ONE_PRODUCT = gql`
-uery oneProduct($id: ID!) {
+query oneProduct($id: ID!) {
     product(_id: $id) {
       _id
       name

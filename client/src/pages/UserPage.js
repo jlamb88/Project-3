@@ -1,5 +1,3 @@
-
-
 import React, {useState} from 'react'
 import LoginForm from '../components/LoginForm'
 
@@ -35,12 +33,15 @@ const UserPage = () => {
     }
 
     return (
-        <div>
-            {(user.email !== "") ? (
+        <div className='user-page'>
+            {(user.loggedIn === true) ? (
                 <div>
                     <h1>Welcome!</h1>
+                    <div className='userInfo'>
+
+                    </div>
                     <div>
-                        <button onClick={Logout} value="Logout" />
+                        <button className='button' onClick={Logout} value="Logout">Logout</button>
                     </div>
                 </div>
             ) :(
