@@ -32,7 +32,6 @@ function NavComponent() {
     return (
         <div>
             <Navbar bg='transparent' expand='sm'>
-                <Navbar.Brand className='text-white' href='/'>Empire Cheesecake</Navbar.Brand>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
                     <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
