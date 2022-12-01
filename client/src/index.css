@@ -40,6 +40,27 @@ h1, h2 {
   text-align: center;
 }
 
+.storyh1 {
+	display: flex;
+	align-items: flex-start;
+	position: absolute;
+	top: 400px;
+}
+
 img {
 	position: relative
+}
+
+.totalh2 {
+	display: flex;
+	color: black;
+	position: absolute;
+}
+
+.about-p {
+	position: absolute;
+	top: 450px;
+	left: 200px;
+	
+	color: white;
 }
