@@ -19,6 +19,7 @@ import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 import CartProvider from './CartContext';
 import NavComponent from './components/Navbar/Navbar';
+import About from './pages/About';
 
 
 function App(details) {
@@ -37,7 +38,8 @@ function App(details) {
 						<Route path='store' element={<Store />} />
             <Route path='/user' element={<UserPage />} />
             {/* <Route path='/signup' element={<SignUp />} /> */}
- 					</Routes>
+ 						<Route path='about' element={<About />} />
+					</Routes>
         </BrowserRouter>
       </Container>
     </CartProvider>

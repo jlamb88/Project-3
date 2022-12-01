@@ -4,32 +4,38 @@ const productArray = [
     {
         id: 'price_1M9Xq4A0zgGYE8hKjaEdjfu0',
         name: 'Large Cheesecake',
-        price: 54.99
+        price: 54.99,
+        image: './images/large-cheesecake.png'
     },
     {
         id: 'price_1M9Xr4A0zgGYE8hK80wPnIya',
         name: 'Small Cheesecake',
-        price: 29.99
+        price: 29.99,
+        image: './images/large-cheesecake.png'
     },
     {
         id: 'price_1M9XsCA0zgGYE8hKq6tJKx6T',
         name: 'Strawberry Cheesecake',
-        price: 59.99
+        price: 59.99,
+        image: './images/large-cheesecake.png'
     },
     {
         id: 'price_1M9XtRA0zgGYE8hK4ko4s0VO',
         name: 'Carrot Cake',
-        price: 34.99
+        price: 34.99,
+        image: './images/large-cheesecake.png'
     },
     {
         id: 'price_1M9XuNA0zgGYE8hKdKyBhMEZ',
         name: 'Chocolate Chip Cookies',
-        price: 6.99
+        price: 6.99,
+        image: './images/large-cheesecake.png'
     },
     {
         id: 'price_1M9XvJA0zgGYE8hKsRPAOjWn',
         name: 'Coffee',
-        price: 4.99
+        price: 4.99,
+        image: './images/large-cheesecake.png'
     }
 ];
 

@@ -32,13 +32,13 @@ function NavComponent() {
     return (
         <div>
             <Navbar bg='transparent' expand='sm'>
-                <Navbar.Brand className='text-white' href='/'>Empire Cheesecake</Navbar.Brand>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
-                    <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
-                    <Navbar.Brand className='text-white' href='/store'>Store</Navbar.Brand>
-                    <Navbar.Brand className='text-white' href='/login'>Login</Navbar.Brand>
-                    <Button onClick={handleShow}>Cart ({productCount}) </Button> 
+					<Navbar.Brand className='navbarText' href='/'>Home</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/about'>About</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/store'>Store</Navbar.Brand>
+                    <Navbar.Brand className='navbarText' href='/login'>Login</Navbar.Brand>
+                    <Button variant='secondary' className='navbarText' onClick={handleShow}>Cart ({productCount}) </Button> 
                 </Navbar.Collapse>
 
                 <Modal show={show} onHide={handleClose}>
@@ -55,7 +55,8 @@ function NavComponent() {
                                     <CartProduct key={index} id={currentProduct.id} quantity={currentProduct.quantity}>Total</CartProduct>
                                 ))}
                                 {/* total cost limited to 2 decimals */}
-                                <h2>Total: ${cart.getTotalCost().toFixed(2)}</h2>
+																<br></br>
+                                <h2 className='totalh2'>Total: ${cart.getTotalCost().toFixed(2)}</h2>
                                 {/* checkout button */}
                                 <Button variant='success' onClick={checkout}>Checkout</Button>
                             </div>
