@@ -1,19 +1,19 @@
 const mongoose = require('mongoose')
-const bcrypyt = require('bcrypt')
+const bcrypt = require('bcrypt')
 const { Schema } = mongoose
 
 const userSchema = new Schema({
-    first_name: {
+    firstName: {
         type: String,
         required: true,
         trim: true
     },
-    last_name: {
+    lastName: {
         type: String,
         required: true,
         trim: true
     },
-    street_address: {
+    streetAddress: {
         type: String,
         required: true
     },
@@ -47,16 +47,15 @@ const userSchema = new Schema({
         minlength: 8
     },
     payment: [{
-        card_type: {
+        cardType: {
             type: String
         },
-        card_number: {
+        cardNumber: {
             type: Number,
             minlength: 16
         },
         expiration: {
             type: String,
-            match: [/^([d]{2})\/([d]{2})$/]
         },
         default: {
             type: Boolean
@@ -68,13 +67,13 @@ const userSchema = new Schema({
 
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
-        this.password = await bcrypyt.hash(this.password, 10)
+        this.password = await bcrypt.hash(this.password, 10)
     }
     next()
 })
 
 userSchema.methods.isCorrectPassword = async function (password) {
-    await bcrypt.compare(password, this.password)
+    return await bcrypt.compareSync(password, this.password)
 }
 
 const User = mongoose.model('User', userSchema)

@@ -17,7 +17,7 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-app.use(cors()); // For Stripe
+// app.use(cors()); // For Stripe
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -30,30 +30,30 @@ app.get('/', (req, res) => {
 });
 
 // Stripe request - can move elsewhere if necessary
-app.post('/checkout', async (req, res) => {
-  const items = req.body.items;
-  let lineItems = [];
-  items.forEach((item) => { // converts items to Stripe friendly format
-      lineItems.push(
-          {
-              price: item.id,
-              quantity: item.quantity
-          }
-      )
-  });
+// app.post('/checkout', async (req, res) => {
+//   const items = req.body.items;
+//   let lineItems = [];
+//   items.forEach((item) => { // converts items to Stripe friendly format
+//       lineItems.push(
+//           {
+//               price: item.id,
+//               quantity: item.quantity
+//           }
+//       )
+//   });
 
-  // creates session with items that Stripe can now read
-  const session = await stripe.checkout.sessions.create({
-      line_items: lineItems,
-      mode: 'payment',
-      success_url: 'http://localhost:3001/success', // these addresses will need to change
-      cancel_url: 'http://localhost:3001/success'
-  });
+// creates session with items that Stripe can now read
+// const session = await stripe.checkout.sessions.create({
+//   line_items: lineItems,
+//   mode: 'payment',
+//   success_url: 'http://localhost:3000/success', // these addresses will need to change
+//   cancel_url: 'http://localhost:3000/success'
+// });
 
-  res.send(JSON.stringify({ // sends Stripe info back to front end
-      url: session.url
-  }));
-});
+// res.send(JSON.stringify({ // sends Stripe info back to front end
+//   url: session.url
+// }));
+// });
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

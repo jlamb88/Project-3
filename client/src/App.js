@@ -9,7 +9,7 @@ import UserPage from './pages/UserPage';
 
 
 //CSS
-import './App.css';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
 
@@ -24,6 +24,7 @@ import NavComponent from './components/Navbar/Navbar';
 function App(details) {
 
   return (
+		<div className='bg-parent'>
     <CartProvider>
       <Container>
         <NavComponent></NavComponent>
@@ -40,6 +41,7 @@ function App(details) {
         </BrowserRouter>
       </Container>
     </CartProvider>
+		</div>
   );
 };
 
