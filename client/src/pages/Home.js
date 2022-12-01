@@ -7,10 +7,10 @@
 
 const Home = () => {
 	return (
-		<section id="hero">
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Welcome to Cheesecake Fact'ry</h1>
-      <h2>We provide the best baked goods at an affordable price!</h2>
+		<section bg='white'>
+    <div>
+      <h1 className="text-white">Welcome to Cheesecake Fact'ry</h1>
+      <h2 className="">We provide the best baked goods at an affordable price!</h2>
       <a href="#about" class="btn-get-started">Get Started</a>
     </div>
   </section>

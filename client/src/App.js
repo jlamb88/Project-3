@@ -19,6 +19,7 @@ import NavComponent from './components/Navbar/Navbar';
 
 function App() {
   return (
+		<div className='bg-parent'>
     <CartProvider>
       <Container>
         <NavComponent></NavComponent>
@@ -33,6 +34,7 @@ function App() {
         </BrowserRouter>
       </Container>
     </CartProvider>
+		</div>
   );
 };
 

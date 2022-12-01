@@ -31,17 +31,17 @@ function NavComponent() {
     console.log(cart);
     return (
         <div>
-            <Navbar bg='light' expand='sm'>
-                <Navbar.Brand href='/'>
-                    Cheesecake Fact'ry
+            <Navbar bg='transparent' expand='sm'>
+                <Navbar.Brand className="text-white" href='/'>
+                    Empire Cheesecake
                 </Navbar.Brand>
-								<Navbar.Brand href='/about'>
+								<Navbar.Brand className="text-white" href='/about'>
 									About
 								</Navbar.Brand>
-								<Navbar.Brand href='/store'>
+								<Navbar.Brand className="text-white" href='/store'>
 									Store
 								</Navbar.Brand>
-								<Navbar.Brand href='/login'>
+								<Navbar.Brand className="text-white" href='/login'>
 									Login
 								</Navbar.Brand>
                 <Navbar.Toggle />
