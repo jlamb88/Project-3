@@ -39,3 +39,7 @@ h1, h2 {
   line-height: 0.9;
   text-align: center;
 }
+
+img {
+	position: relative
+}

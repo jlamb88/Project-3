@@ -8,10 +8,10 @@
 const Home = () => {
 	return (
 		<section id="hero">
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Welcome to Empire Cheesecake.</h1>
-      <h2>We provide the best baked goods at an affordable price!</h2>
-      <a href="#about" class="btn-get-started">Get Started</a>
+    <div className="mt-5 d-flex justify-content-center">
+			<img 
+				src="/ECNFM.png"
+				alt="Empire Cheesecake Logo" />
     </div>
   </section>
 	);
