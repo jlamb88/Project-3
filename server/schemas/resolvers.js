@@ -1,6 +1,8 @@
 const { User, Product, Order, Cart } = require('../models/')
 const { signToken } = require('../utils/auth')
 const { AuthenticationError } = require('apollo-server-express')
+// Stripe Secret Key
+const stripe = require('stripe')('sk_test_51M9WEeA0zgGYE8hKfLzdebUdsNrrjNE3SI2bkSS8NclVm5VXPYz0VglrMEMnmJnK4uKi3jsQvBEkHMaFZEpSJsLr00EcdyU0Ss');
 
 const resolvers = {
     Query: {
@@ -44,15 +46,16 @@ const resolvers = {
                 });
             }
 
+            // stripe checkout
             const session = await stripe.checkout.sessions.create({
                 payment_method_types: ['card'],
                 line_items,
                 mode: 'payment',
                 success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${url}/`
+                cancel_url: `${url}/cancel`
             });
 
-            return { transId: session.id };
+            return { session: session.id };
         }
     },
     Mutation: {
