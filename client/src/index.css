@@ -83,4 +83,12 @@ button.navbarText,
 button.btn,
 .modalText {
 	color: antiquewhite
+
+.login-page {
+	position: absolute;
 }
+
+label {
+	color: antiquewhite;
+}
+
