@@ -32,14 +32,14 @@ function App(details) {
         <NavComponent></NavComponent>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home />} />
-						<Route path='/store' element={<Store />} />
-            <Route path='/success' element={<Success />} />
-            <Route path='/cancel' element={<Cancel />} />
-						<Route path='/store' element={<Store />} />
-            <Route path='/user' element={<UserPage />} />
+            <Route exact path='/' element={<Home />} />
+						<Route exact path='/store' element={<Store />} />
+            <Route exact path='/success' element={<Success />} />
+            <Route exact path='/cancel' element={<Cancel />} />
+						<Route exaact path='/store' element={<Store />} />
+            <Route exact path='/user' element={<UserPage />} />
             {/* <Route path='/signup' element={<SignUp />} /> */}
-          <Route path='/about' element={<About />} />
+          	<Route exact path='/about' element={<About />} />
 					</Routes>
 
         </BrowserRouter>

@@ -93,3 +93,7 @@ label {
 	color: antiquewhite;
 }
 
+.card-images {
+	height: 25vh;
+	width: 15vw;
+}
