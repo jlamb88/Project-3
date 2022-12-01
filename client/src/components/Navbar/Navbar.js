@@ -34,6 +34,7 @@ function NavComponent() {
             <Navbar bg='transparent' expand='sm'>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
+										<Navbar.Brand className='text-white' href='/'>Home</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/store'>Store</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/login'>Login</Navbar.Brand>
@@ -54,7 +55,8 @@ function NavComponent() {
                                     <CartProduct key={index} id={currentProduct.id} quantity={currentProduct.quantity}>Total</CartProduct>
                                 ))}
                                 {/* total cost limited to 2 decimals */}
-                                <h2>Total: ${cart.getTotalCost().toFixed(2)}</h2>
+																<br></br>
+                                <h2 className='totalh2'>Total: ${cart.getTotalCost().toFixed(2)}</h2>
                                 {/* checkout button */}
                                 <Button variant='success' onClick={checkout}>Checkout</Button>
                             </div>
