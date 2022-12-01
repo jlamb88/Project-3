@@ -29,6 +29,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
+
+
+
 // Stripe request - can move elsewhere if necessary
 // app.post('/checkout', async (req, res) => {
 //   const items = req.body.items;
