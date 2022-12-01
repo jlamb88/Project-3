@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import UserPage from './pages/UserPage';
 import SignUp from './pages/SignUp';
+import LoginPage from './components/LoginForm'
 
 
 //CSS
@@ -37,7 +38,8 @@ function App(details) {
             <Route path='cancel' element={<Cancel />} />
 						<Route path='store' element={<Store />} />
             <Route path='/user' element={<UserPage />} />
-            {/* <Route path='/signup' element={<SignUp />} /> */}
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/signup' element={<SignUp />} />
           <Route path='about' element={<About />} />
 					</Routes>
 

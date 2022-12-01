@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Login from '../pages/UserPage'
 
 function LoginForm({Login, error}) {
     const [details, setDetails] = useState({email:'', password:''})
@@ -6,6 +7,7 @@ function LoginForm({Login, error}) {
         e.preventDefault();
 
         Login(details)
+        
     }
 
   return (
