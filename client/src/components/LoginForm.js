@@ -7,7 +7,7 @@ function LoginForm({Login, error}) {
 
     const submitHandler = e =>{
         e.preventDefault();
-        
+
         Login(details);
 
     }
@@ -16,7 +16,7 @@ function LoginForm({Login, error}) {
     <form onSubmit={submitHandler}>
         <div>
             <h2>Login</h2>
-            {(error !== "") ? (<div className="error">{error}</div>) : ""}
+            {/* {(error !== "") ? (<div className="error">{error}</div>) : ""} */}
             <div className="form-group">
                 <label htmlFor="email">Email:</label>
                 <input type="text" name="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value= {details.email} />
@@ -26,7 +26,7 @@ function LoginForm({Login, error}) {
                 <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value= {details.password} />
             </div>
             <div className="form-group">
-                <input type="submit" value="Login"  e.preventDefault />
+                <input type="submit" value="Login" />
 
             </div>
             <div>
