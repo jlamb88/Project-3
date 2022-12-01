@@ -38,7 +38,6 @@ function App(details) {
 						<Route path='store' element={<Store />} />
             <Route path='/user' element={<UserPage />} />
             {/* <Route path='/signup' element={<SignUp />} /> */}
- 					</Routes>
           <Route path='about' element={<About />} />
 					</Routes>
 
