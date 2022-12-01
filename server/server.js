@@ -46,8 +46,8 @@ app.post('/checkout', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: 'payment',
-      success_url: 'http://localhost:3000/success', // these addresses will need to change
-      cancel_url: 'http://localhost:3000/success'
+      success_url: 'http://localhost:3001/success', // these addresses will need to change
+      cancel_url: 'http://localhost:3001/success'
   });
 
   res.send(JSON.stringify({ // sends Stripe info back to front end

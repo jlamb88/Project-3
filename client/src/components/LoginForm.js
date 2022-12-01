@@ -4,9 +4,10 @@
 
 function LoginForm({Login, error}) {
     const [details, setDetails] = useState({email:"", password:""})
+
     const submitHandler = e =>{
         e.preventDefault();
-        // {handleLoggedIn}
+        
         Login(details);
 
     }
@@ -25,12 +26,12 @@ function LoginForm({Login, error}) {
                 <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value= {details.password} />
             </div>
             <div className="form-group">
-                <input type="submit" value="Login"  />
+                <input type="submit" value="Login"  e.preventDefault />
 
             </div>
             <div>
                 <h4>Don't have an account?</h4>
-                <link to="Create"><button>Click Here!</button></link>
+                {/* <link to="Create"><button>Click Here!</button></link> */}
             </div>
         </div>
     </form>
