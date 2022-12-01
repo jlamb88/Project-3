@@ -34,7 +34,7 @@ function NavComponent() {
             <Navbar bg='transparent' expand='sm'>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
-										<Navbar.Brand className='text-white' href='/'>Home</Navbar.Brand>
+					<Navbar.Brand className='text-white' href='/'>Home</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/about'>About</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/store'>Store</Navbar.Brand>
                     <Navbar.Brand className='text-white' href='/login'>Login</Navbar.Brand>
