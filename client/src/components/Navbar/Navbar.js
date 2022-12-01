@@ -43,12 +43,12 @@ function NavComponent() {
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Shopping Cart</Modal.Title>
+                        <Modal.Title className='modalTitleText'>Shopping Cart</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {/* If there are products, map over current, else show cart is empty */}
                         {productCount > 0 ?
-                            <div>
+                            <div className='modalText'>
                                 <p>In Cart: </p>
                                 {cart.items.map((currentProduct, index) => (
                                     // gives product info to the cart modal to display
