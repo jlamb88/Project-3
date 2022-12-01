@@ -24,28 +24,27 @@ import NavComponent from './components/Navbar/Navbar';
 
 
 function App(details) {
-
   return (
-		<div className='bg-parent'>
-    <CartProvider>
-      <Container>
-        <NavComponent></NavComponent>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Home />} />
-						<Route path='/store' element={<Store />} />
-            <Route path='/success' element={<Success />} />
-            <Route path='/cancel' element={<Cancel />} />
-						<Route path='/store' element={<Store />} />
-            <Route path='/user' element={<UserPage />} />
-            {/* <Route path='/signup' element={<SignUp />} /> */}
-          <Route path='/about' element={<About />} />
-					</Routes>
+    <div className='bg-parent'>
+      <CartProvider>
+        <Container>
+          <NavComponent></NavComponent>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Home />}></Route>
+              <Route path='/store' element={<Store />}></Route>
+              <Route path='/success' element={<Success />}></Route>
+              <Route path='/cancel' element={<Cancel />}></Route>
+              <Route path='/store' element={<Store />}></Route>
+              <Route path='/user' element={<UserPage />}></Route>
+              {/* <Route path='/signup' element={<SignUp />} /> */}
+              <Route path='/about' element={<About />}></Route>
+            </Routes>
 
-        </BrowserRouter>
-      </Container>
-    </CartProvider>
-		</div>
+          </BrowserRouter>
+        </Container>
+      </CartProvider>
+    </div>
   );
 };
 
