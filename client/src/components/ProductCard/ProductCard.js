@@ -11,6 +11,7 @@ function ProductCard (props) {
     return (
         <Card>
             <Card.Body>
+								<Card.Img>{product.image}</Card.Img>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>${product.price}</Card.Text>
                 {/* checks product quantity to determine which buttons to show */}
