@@ -2,28 +2,35 @@ import { Button, Navbar, Modal } from 'react-bootstrap';
 import { useState, useContext } from 'react';
 import { CartContext } from '../../CartContext';
 import CartProduct from '../CartProduct/CartProduct';
+import { useMutation } from '@apollo/client';
+import { CHECKOUT } from '../../utils/mutations';
 
 function NavComponent() {
     const cart = useContext(CartContext);
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+    const [runCheckout, {error}] = useMutation(CHECKOUT);
 
     // checkout function for checkout button w/ POST route.
     const checkout = async () => {
-        await fetch('http://localhost:3000/checkout', { // this address will need to change
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ items: cart.items })
-        }).then((response) => {
-            return response.json();
-        }).then((response) => {
-            if (response.url) {
-                window.location.assign(response.url) // sends user to Stripe
-            }
-        });
+        const {data} = await runCheckout({
+            variables: {...cart.items}
+        })
+        console.log(data)
+        // await fetch('/checkout', { // this address will need to change
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({ items: cart.items })
+        // }).then((response) => {
+        //     return response.json();
+        // }).then((response) => {
+        //     if (response.url) {
+        //         window.location.assign(response.url) // sends user to Stripe
+        //     }
+        // });
     };
 
     // adds up all product.quantity to show total amount of products in cart
@@ -34,7 +41,7 @@ function NavComponent() {
             <Navbar bg='transparent' expand='sm'>
                 <Navbar.Toggle /> {/* Hamburger Button */}
                 <Navbar.Collapse className='justify-content-end'> {/* Everything for the Hamburger goes in here */}
-										<Navbar.Brand className='navbarText' href='/'>Home</Navbar.Brand>
+					<Navbar.Brand className='navbarText' href='/'>Home</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/about'>About</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/store'>Store</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/user'>Login</Navbar.Brand>
