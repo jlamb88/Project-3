@@ -8,6 +8,7 @@ type User {
     streetAddress: String
     city: String
     state: String
+    zipcode: Int
     phone: Float
     email: String
     password: String
@@ -41,7 +42,7 @@ type Product {
 type Order {
     _id: ID
     total: Int
-    user: [User]
+    user: User
     products: [Product]
     orderedAt: String
     transId: Int
@@ -82,7 +83,9 @@ type Query {
     users: [User]
     products: [Product]
     product(_id: ID!): Product
-    order(userId: ID!): Order
+    userOrders(userId: ID!): Order
+    order(_id: ID!):Order
+    orders: [Order]
     cart(userId: ID!): Cart
     checkout(products: [ID]!): Checkout
 }
@@ -99,7 +102,7 @@ type Mutation {
         phone: Float
         email: String!
         password: String!
-        ): User
+        ): Auth
     addOrder(
         userId: ID, 
         products: [ID]!, 
