@@ -1,3 +1,10 @@
+ // https://imgur.com/ZbDQmJm
+ // https://imgur.com/bH5wiLs
+ // https://imgur.com/SotYiMT
+ // https://imgur.com/1rjD49H
+ // https://imgur.com/11DsKcC
+ // https://imgur.com/RqWj8pD
+
 
 // this will be converted to models
 const productArray = [
@@ -5,37 +12,37 @@ const productArray = [
         id: 'price_1M9Xq4A0zgGYE8hKjaEdjfu0',
         name: 'Large Cheesecake',
         price: 54.99,
-        image: './images/large-cheesecake.png'
+        image: 'https://i.imgur.com/ZbDQmJm.png'
     },
     {
         id: 'price_1M9Xr4A0zgGYE8hK80wPnIya',
         name: 'Small Cheesecake',
         price: 29.99,
-        image: './images/large-cheesecake.png'
+        image: 'https://i.imgur.com/bH5wiLs.png'
     },
     {
         id: 'price_1M9XsCA0zgGYE8hKq6tJKx6T',
         name: 'Strawberry Cheesecake',
         price: 59.99,
-        image: './images/large-cheesecake.png'
+        image: 'https://i.imgur.com/SotYiMT.jpg'
     },
     {
         id: 'price_1M9XtRA0zgGYE8hK4ko4s0VO',
         name: 'Carrot Cake',
         price: 34.99,
-        image: './images/large-cheesecake.png'
+        image: 'https://i.imgur.com/1rjD49H.png'
     },
     {
         id: 'price_1M9XuNA0zgGYE8hKdKyBhMEZ',
         name: 'Chocolate Chip Cookies',
         price: 6.99,
-        image: './images/large-cheesecake.png'
+        image: 'https://i.imgur.com/11DsKcC.jpg'
     },
     {
         id: 'price_1M9XvJA0zgGYE8hKsRPAOjWn',
         name: 'Coffee',
         price: 4.99,
-        image: './images/large-cheesecake.png'
+        image: 'https://i.imgur.com/RqWj8pD.jpg'
     }
 ];
 
