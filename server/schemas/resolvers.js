@@ -63,7 +63,10 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, { firstName, lastName, streetAddress, city, state, zipcode, phone, email, password }) => {
-            return await User.create({ firstName, lastName, streetAddress, city, state, zipcode, phone, email, password })
+            const user = await User.create({ firstName, lastName, streetAddress, city, state, zipcode, phone, email, password })
+            const token = signToken(user)
+
+            return { user, token }
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email })
@@ -102,8 +105,7 @@ const resolvers = {
         updatePayment: async (parent, { userId, userPayment }) => {
             return await User.findOneAndUpdate(
                 { _id: userId },
-                { $pull: { payment: { _id: payId } } },
-                { $addToSet: { userPayment } },
+                { $set: { payment: { _id: userPayment.payId }, userPayment }, },
                 { new: true }
             )
         },
@@ -116,7 +118,8 @@ const resolvers = {
         addComment: async (parent, { productId, name, text, rating }) => {
             return await Product.findOneAndUpdate(
                 { _id: productId },
-                { $addToSet: { name, text, rating } },
+                { $addToSet: { comment: { name, text, rating }, }, },
+
                 { new: true }
             )
         },

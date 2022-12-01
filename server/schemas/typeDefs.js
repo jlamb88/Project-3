@@ -8,6 +8,7 @@ type User {
     streetAddress: String
     city: String
     state: String
+    zipcode: Int
     phone: Float
     email: String
     password: String
@@ -41,7 +42,7 @@ type Product {
 type Order {
     _id: ID
     total: Int
-    user: [User]
+    user: User
     products: [Product]
     orderedAt: String
     transId: Int
@@ -82,14 +83,15 @@ type Query {
     users: [User]
     products: [Product]
     product(_id: ID!): Product
-    order(userId: ID!): Order
+    userOrders(userId: ID!): Order
+    order(_id: ID!):Order
+    orders: [Order]
     cart(userId: ID!): Cart
     checkout(products: [ID]!): Checkout
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth
-
     addUser(
         firstName: String 
         lastName: String
@@ -100,14 +102,12 @@ type Mutation {
         phone: Float
         email: String!
         password: String!
-        ): User
-  
+        ): Auth
     addOrder(
         userId: ID, 
         products: [ID]!, 
         total:Int, 
         transId: Int): Order
-  
     updateUser(
         firstName: String
         lastName: String
@@ -119,37 +119,29 @@ type Mutation {
         email: String!
         password: String!
         ):User
-
     addPayment(
         content: userPayment
     ):User
-   
     updatePayment(
         _id:ID!, content: userPayment
-
     ):User
-    
     deletePayment(_id:ID!, payId:ID!):User
-    
     addComment(
         _id:ID!
         name: String!
         text: String!
         rating: Int
         ):Product
-   
     addCart(
         userId: ID!
         product: [ID]!
         quantity: Int
     ):Cart
-
     updateCartItems(
         userID: ID!
         productID: ID!
         quantity: Int
-    ):Cart
-    
+    ):Cart  
     deleteCartItem(
         userID: ID!
         productID: ID!
