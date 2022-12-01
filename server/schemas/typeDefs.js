@@ -141,7 +141,7 @@ type Mutation {
         userID: ID!
         productID: ID!
         quantity: Int
-    ):Cart
+    ):Cart  
     deleteCartItem(
         userID: ID!
         productID: ID!

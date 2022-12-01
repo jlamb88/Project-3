@@ -55,10 +55,10 @@ const resolvers = {
                 line_items,
                 mode: 'payment',
                 success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${url}/cancel`
+                cancel_url: `${url}/`
             });
 
-            return { session: session.id };
+            return { transId: session.id };
         }
     },
     Mutation: {
@@ -119,6 +119,7 @@ const resolvers = {
             return await Product.findOneAndUpdate(
                 { _id: productId },
                 { $addToSet: { comment: { name, text, rating }, }, },
+
                 { new: true }
             )
         },
