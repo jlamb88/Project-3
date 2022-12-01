@@ -126,7 +126,8 @@ const resolvers = {
         addCart: async (parent, { userId, product, quantity }) => {
             return await Cart.create(
                 { userId, product, quantity }
-            )
+            ) 
+            // throw new AuthenticationError('Cart error');
         },
         updateCartItems: async (parent, { userId, productId, quantity }) => {
             return await Cart.findOneAndUpdate(
