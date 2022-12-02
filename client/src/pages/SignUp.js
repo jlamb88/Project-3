@@ -7,7 +7,7 @@ const SignUp = (Users) => {
     const submitHandler =(e) => {
         e.preventDefault();
         console.log({user, e})
-        document.localStorage.push(user)
+        localStorage.setItem(user)
         console.log('seeds', User)
         return <UserPage />
     }
