@@ -42,6 +42,11 @@ h2 {
   text-align: center;
 }
 
+.welcome {
+  text-align: left;
+  padding-bottom: 10px;
+}
+
 .storyh1 {
   display: flex;
   align-items: flex-start;
@@ -87,6 +92,10 @@ button.btn,
 
 .login-page {
 	position: absolute;
+}
+
+.orderHistory {
+  color: antiquewhite;
 }
 
 label {
