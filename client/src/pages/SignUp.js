@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import signUpForm from '../components/SignupForm';
 
 const SignUp = () => {
     const [user, setUser] = useState({

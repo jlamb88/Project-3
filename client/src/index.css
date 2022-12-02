@@ -44,6 +44,9 @@ h2 {
 
 h3 {
   color: antiquewhite;
+.welcome {
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 .storyh1 {
@@ -103,6 +106,10 @@ button.btn,
 
 .login-page {
   position: absolute;
+}
+
+.orderHistory {
+  color: antiquewhite;
 }
 
 label {

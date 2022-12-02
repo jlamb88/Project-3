@@ -47,7 +47,8 @@ const UserPage = () => {
             </Row>
             {(user.email !== "") ? (
                 <div>
-                    <h1>Welcome!</h1>
+                    <h1 className='welcome'>Welcome!</h1>
+                    <h3 className='orderHistory'>Order History: </h3>
                     <div>
                         <Button className='formButton' variant="secondary" type="submit" onClick={logout}>Logout</Button>
                     </div>
