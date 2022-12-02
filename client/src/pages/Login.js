@@ -1,56 +1,60 @@
 import React, { useState } from 'react';
-import LoginForm from '../components/LoginForm';
-import UserPage from './UserPage'
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 
-const adminUser = {email:"admin@admin.com", password:"admin"}
+import Auth from '../utils/auth';
 
-const Login = ({ loggedIn, setLoggedIn }) => {
-    const [user, setUser] = useState({name:"", email:""});
-    const [error, setError] = useState("");
-    const Login = details =>{
-        console.log(details)
 
-        if (details.email == adminUser.email && details.password == adminUser.password){
-        console.log("logged In!")
-        setUser({
-            name:details.name,
-            email:details.email
-        })
-        return(
-          <div>
-              {(user.email !="") ? (
-                <UserPage />
-              ):(
-                  <div>
-                      <LoginForm Login={Login} error={error} />
-                  </div>
-              )}
-          </div>
-      )
-    } else {
-        console.log('Information Does not match')
-        setError("Information does not match")
-    }
-}
-    const Logout = () => {
-        setUser({email:""})
-    }
+const Login = (props) => {
+    const [details, setDetails] = useState({ email: '', password: '' });
+    const [login, { error, data }] = useMutation(LOGIN_USER);
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setDetails({
+        ...details,
+        [name]: value,
+      });
+    };
+  
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(details);
+      try {
+        const { data } = await login({
+          variables: { ...details },
+        });
+  
+        Auth.login(data.login.token);
+      } catch (e) {
+        console.error(e);
+      }
+  
+      setDetails({
+        email: '',
+        password: '',
+      });
+    };
 
-    return(
-        <div>
-            {(user.email !="") ? (
-                <div className="welcome">
-                    <h2>Welcome, <span>{user.email}!</span></h2>
-                    <button onClick={Logout} >Logout</button>
-                </div>
-            ):(
-                <div>
-                    <LoginForm Login={Login} error={error} />
-                </div>
-            )}
+return (
+    <div className='login-page'>
+        {(error !== "") ? (<div className="error">{error}</div>) : "" }
+        <form onSubmit={handleFormSubmit}>
+        <h2>Login</h2>
+        <div className="form-group">
+            <label htmlFor="email">Email: </label>
+            <input type="text" name="email" id="email" onChange={handleChange} />
         </div>
-    )
+        <div className="form-group">
+            <label htmlFor="password">Password: </label>
+            <input type="password" name="password" id="password" onChange={handleChange} />
+        </div>
+        <div className="form-group">
+            <input type="submit" value="Login" />
+        </div>
+        </form>
+    </div>
+)
 }
-        
-
-export default Login;
+export default Login

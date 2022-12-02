@@ -1,73 +1,104 @@
 import React, { useState } from 'react';
-import UserPage from './UserPage'
-import User from '../utils/seeds/Users'
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-const SignUp = (Users) => {
+const SignUp = () => {
 
-    const submitHandler =(e) => {
-        e.preventDefault();
-        console.log({user, e})
-        localStorage.setItem(user)
-        console.log('seeds', User)
-        return <UserPage />
-    }
-
-    const [user, setUser] = useState([{
-        firstName:"",
-        lastName:"",
-        street_address:"",
-        city:"",
-        state:"",
-        zipcode:"",
-        phone:"",
-        email:"",
-        password:""
-    }])
+    const [formState, setFormState] = useState({
+        firstName: '',
+        lastName: '',
+        streetAddress:'',
+        city:'',
+        state:'',
+        zipcode:'',
+        phone:'',
+        email: '',
+        password: '',
+      });
+      const [addUser, { error, data }] = useMutation(ADD_USER);
+    
+      const handleChange = (event) => {
+        const { name, value } = event.target;
+    
+        setFormState({
+          ...formState,
+          [name]: value,
+        });
+      };
+    
+      const submitHandler = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+    
+        try {
+          const { data } = await addUser({
+            variables: { ...formState },
+          });
+    
+          Auth.login(data.addUser.token);
+        } catch (e) {
+          console.error(e);
+        }
+      };
 
         return(
+            <div>
+                {data ?(
+                    <Link to='/user'> User Page!</Link> 
+                ):(
             <form onSubmit={submitHandler} class="sign-up">
                 <div class="form">
                     <label htmlFor="firstName">First Name: </label>
-                    <input type="text" name="firstName" onChange={e => setUser({...user, firstName: e.target.value})} value={user.firstName} />
+                    <input type="text" name="firstName" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="lastName">Last Name: </label>
-                    <input type="text" name="lastName" onChange={e => setUser({...user, lastName: e.target.value})} value={user.lastName} />
+                    <input type="text" name="lastName" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="email">Email: </label>
-                    <input type="email" name="email" onChange={e => setUser({...user, email: e.target.value})} value={user.email} />
+                    <input type="email" name="email" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="password">Password: </label>
-                    <input type="password" name="password" onChange={e => setUser({...user, password: e.target.value})} value={user.password} />
+                    <input type="password" name="password" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="phone">Phone: </label>
-                    <input type="tel" name="phone" onChange={e => setUser({...user, phone: e.target.value})} value={user.phone} />
+                    <input type="tel" name="phone" onChange={handleChange} />
                 </div>
                 <div class="form">
-                    <label htmlFor="street_address">Street Address: </label>
-                    <input type="text" name="street_address" onChange={e => setUser({...SignUp, streetAddress: e.target.value})} value={user.streetAddress} />
+                    <label htmlFor="streetAddress">Street Address: </label>
+                    <input type="text" name="streetAddress" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="city">City: </label>
-                    <input type="text" name="city" onChange={e => setUser({...user, city: e.target.value})} value={user.city} />
+                    <input type="text" name="city" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="state">State: </label>
-                    <input type="text" name="state" onChange={e => setUser({...user, state: e.target.value})} value={user.state} />
+                    <input type="text" name="state" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <label htmlFor="zipcode">Zip Code: </label>
-                    <input type="number" name="zipcode" onChange={e => setUser({...user, zipcode: e.target.value})} value={user.zipcode} />
+                    <input type="number" name="zipcode" onChange={handleChange} />
                 </div>
                 <div class="form">
                     <input type="submit" value="Sign Up!" />
                 </div>
                 
             </form>
-        )
-}
+            
+        )}
+         {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+                </div>
+                )}
+        </div>
+)}
+
 
 export default SignUp

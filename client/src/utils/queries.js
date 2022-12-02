@@ -57,3 +57,25 @@ query oneUser($id: ID!) {
     }
   }`
 
+  export const ME = gql`
+  query oneUser($id: ID!) {
+      user(_id: $id) {
+        _id
+        firstName
+        lastName
+        streetAddress
+        city
+        state
+        phone
+        email
+        password
+        payment {
+          cardType
+          cardNumber
+          expiration
+          default
+        }
+      }
+    }`
+  
+  

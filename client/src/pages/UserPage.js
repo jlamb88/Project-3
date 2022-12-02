@@ -1,65 +1,65 @@
-import React, {useState} from 'react'
-import LoginForm from '../components/LoginForm'
-import User from '../utils/seeds/Users'
+
+import React from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+    
+
+    
+import { USER, ME } from '../utils/queries';
+    
+import Auth from '../utils/auth';
 
 const UserPage = () => {
-
-    const admin = {
-        email:'admin@admin.com',
-        password:"admin"
-    }
-
-    const [user, setUser] = useState({email:"", loggedIn:false})
-    const [error, setError] = useState('')
-
-    const Login = (details) => {
-        console.log(details)
-        var i = User.length
-        while(i --){
-            if (details.email === User[i].email && details.password === User[i].password){
-                console.log('LoggedIn!')
-                setUser({
-                    firstName: User[i].firstName,
-                    lastName: User[1].lastName,
-                    streetAddress: User[i].streetAddress,
-                    city:User[i].city,
-                    state: User[i].state,
-                    zipcode: User[i].zipcode,
-                    phone: User[i].phone,
-                    email:User[i].email,
-                    loggedIn:true
-                })
-                console.log('user', user)
-            }else{
-                console.log('details dont match')
-                setError("User Not Found")
-            }}
-    }
-
-    const Logout =() => {
-        console.log("logout")
+    const { username: userParam } = useParams();
+      
+    const { loading, data } = useQuery(userParam ? USER : ME, {
+      variables: { username: userParam },
+    });
+      
+    const user = data?.me || data?.user || {};
         
-        setUser({email:"", loggedIn:false})
+    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+      return <Navigate to="/me" />;
     }
+      
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+      
+    if (!user?.username) {
+      return (
+        <h4>
+          You need to be logged in to see this. Use the navigation links above to
+          sign up or log in!
+        </h4>
+      );
+    }
+    return(
+    <div className='user-page-parent'>
+        <div>
+    <div className="flex-row justify-center mb-3">
+    <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+      Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+    </h2>
 
-    return (
-        <div className='user-page'>
-            {(user.loggedIn === true) ? (
-                <div>
-                    <h1>Welcome!</h1>
-                    <div className='userInfo'>
+    <div className="col-12 col-md-10 mb-5">
+          
+    </div>
+    {!userParam && (
+      <div
+        className="col-12 col-md-10 mb-3 p-3"
+        style={{ border: '1px dotted #1a1a1a' }}
+      >
 
-                    </div>
-                    <div>
-                        <button className='button' onClick={Logout} value="Logout">Logout</button>
-                    </div>
-                </div>
-            ) :(
-                <LoginForm Login={Login} error={error}/>
-            )
-            }
         </div>
-    )
+    )}
+    </div>
+</div>
+);
+
+
+    </div>
+)
 }
 
 export default UserPage
