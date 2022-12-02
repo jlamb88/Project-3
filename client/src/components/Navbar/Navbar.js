@@ -45,7 +45,7 @@ function NavComponent() {
                     <Navbar.Brand className='navbarText' href='/about'>About</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/store'>Store</Navbar.Brand>
                     <Navbar.Brand className='navbarText' href='/user'>Login</Navbar.Brand>
-                    <Button variant='secondary' className='navbarText' onClick={handleShow}>Cart ({productCount}) </Button> 
+                    <Button variant='dark' className='navbarText' onClick={handleShow}>Cart ({productCount}) </Button> 
                 </Navbar.Collapse>
 
                 <Modal show={show} onHide={handleClose}>
