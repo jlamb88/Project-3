@@ -28,8 +28,8 @@ const About = () => {
 			<div id='contactus'>
 				<h3 className="row storyh3">
 					Contact Us</h3>
-				<h5>Contact us with inquiries or questions</h5>
-				<a href='mailTo:Empirecheesecake@gmail.com'><button type="button" class="btn btn-outline-dark"> Email</button></a>
+				<h5 className='contactBlurb'>Contact us with inquiries or questions</h5>
+				<a href='mailTo:Empirecheesecake@gmail.com'><button type="button" class="btn btn-secondary"> Email</button></a>
 
 			</div>
 		</section>
