@@ -93,3 +93,13 @@ label {
 	color: antiquewhite;
 }
 
+/* login form */
+div.mb-3,
+.formButton {
+  opacity: .9;
+}
+
+input#formBasicEmail,
+input#formBasicPassword {
+  width: 100%;
+}

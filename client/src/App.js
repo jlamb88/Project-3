@@ -70,7 +70,7 @@ function App(details) {
           </Container>
         </CartProvider>
       </ApolloProvider>
-    </div>
+      </div>
   );
 };
 
