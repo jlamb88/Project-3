@@ -42,10 +42,30 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  color: antiquewhite;
+}
+
 .storyh1 {
   display: flex;
   align-items: flex-start;
   margin-top: 10em;
+}
+
+#aboutus {
+  position: absolute;
+  left: 20px;
+  top: 120px;
+  margin: 5em;
+  padding: 2em;
+}
+
+#contactus {
+  position: absolute;
+  left: 20px;
+  top: 350px;
+  margin: 5em;
+  padding: 2em;
 }
 
 img {
@@ -58,9 +78,6 @@ img {
 }
 
 .about-p {
-  position: absolute;
-  top: 450px;
-  left: 200px;
   color: antiquewhite;
 }
 
