@@ -50,8 +50,7 @@ h2 {
 .storyh1 {
   display: flex;
   align-items: flex-start;
-  position: absolute;
-  top: 400px;
+  margin-top: 10em;
 }
 
 img {
@@ -76,22 +75,22 @@ div.card {
 }
 
 div.modal-header {
-	background: antiquewhite;
+  background: antiquewhite;
 }
 
 div.modal-content {
-	background: rgba(80, 80, 80, 0.75) 
+  background: rgba(80, 80, 80, 0.75)
 }
 
 a.navbarText,
 button.navbarText,
 button.btn,
 .modalText {
-	color: antiquewhite;
+  color: antiquewhite;
 }
 
 .login-page {
-	position: absolute;
+  position: absolute;
 }
 
 .orderHistory {
@@ -99,7 +98,7 @@ button.btn,
 }
 
 label {
-	color: antiquewhite;
+  color: antiquewhite;
 }
 
 /* login form */
@@ -111,4 +110,21 @@ div.mb-3,
 input#formBasicEmail,
 input#formBasicPassword {
   width: 100%;
+}
+
+#splashtext {
+  height: 20em;
+  width: 18em;
+  position: relative;
+  top: 160px;
+  opacity: 0.95
+}
+
+#logobox {
+  position: relative;
+  top: 160px;
+  background-color: lightgray;
+  background-blend-mode: lighten;
+  opacity: 0.8;
+  padding: 2em;
 }
