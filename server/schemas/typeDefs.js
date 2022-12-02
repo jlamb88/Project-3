@@ -56,8 +56,7 @@ type Comment {
 }
 
 type Cart {
-    user: [User]
-    product: [Product]
+    id: String!
     quantity: Int
 }
 
@@ -133,8 +132,7 @@ type Mutation {
         rating: Int
         ):Product
     addCart(
-        userId: ID!
-        product: [ID]!
+        id: ID!
         quantity: Int
     ):Cart
     updateCartItems(
@@ -151,3 +149,5 @@ type Mutation {
 
 
 module.exports = typeDefs
+
+// changed typeCart and addCart for testing
