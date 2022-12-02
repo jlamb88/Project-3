@@ -1,4 +1,3 @@
-
 function Success() {
     return (
         <h1>Purchase Successful!</h1>

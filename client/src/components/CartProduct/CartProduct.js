@@ -14,7 +14,7 @@ function CartProduct(props) {
         <div>
             <h4>{ productData.name }</h4>
             <p>Qty: { quantity }</p>
-            <h4>${ (quantity * productData.price) }</h4>
+            <h4>${ (quantity * productData.price).toFixed(2) }</h4>
             <Button variant='danger' size='sm' onClick={ () => cart.deleteFromCart(id) }>Remove</Button>
         </div>
     );
