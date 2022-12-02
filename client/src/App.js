@@ -13,7 +13,7 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import UserPage from './pages/UserPage';
 import About from './pages/About';
-// import SignUp from './pages/SignUp';
+import SignUp from './pages/SignUp';
 
 //CSS
 import './index.css';
@@ -45,7 +45,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
+function App (){
 
   return (
     <div className='bg-parent'>
@@ -61,7 +61,7 @@ const client = new ApolloClient({
                 <Route path='/cancel' element={<Cancel />} />
                 <Route path='/store' element={<Store />} />
                 <Route path='/user' element={<UserPage />} />
-                {/* <Route path='/signup' element={<SignUp />} /> */}
+                <Route path='/signup' element={<SignUp />} />
                 <Route path='/about' element={<About />} />
               </Routes>
 

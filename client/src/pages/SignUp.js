@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-import {useQuery, useMutation} from '@apollo/client'
-import {USER} from '../utils/queries'
+import UserPage from './UserPage'
+import User from '../utils/seeds/Users'
 
-const SignUp = () => {
-    const {loading, data} = useQuery(USER)
-
-    const addUser = (user) => {
-        <Mutation mutation={ADD_USER} />
-    }
+const SignUp = (Users) => {
 
     const submitHandler =(e) => {
         e.preventDefault();
         console.log({user, e})
-        useMutation(addUser)
-
+        document.localStorage.push(user)
+        console.log('seeds', User)
+        return <UserPage />
     }
 
-    const [user, setUser] = useState({
-        first_name:"",
-        last_name:"",
+    const [user, setUser] = useState([{
+        firstName:"",
+        lastName:"",
         street_address:"",
         city:"",
         state:"",
@@ -26,17 +22,17 @@ const SignUp = () => {
         phone:"",
         email:"",
         password:""
-    })
+    }])
 
         return(
-            <form onsubmit={submitHandler} class="sign-up">
+            <form onSubmit={submitHandler} class="sign-up">
                 <div class="form">
-                    <label htmlFor="first_name">First Name: </label>
-                    <input type="text" name="first_name" onChange={e => setUser({...user, first_name: e.target.value})} value={user.first_name} />
+                    <label htmlFor="firstName">First Name: </label>
+                    <input type="text" name="firstName" onChange={e => setUser({...user, firstName: e.target.value})} value={user.firstName} />
                 </div>
                 <div class="form">
-                    <label htmlFor="last_name">Last Name: </label>
-                    <input type="text" name="last_name" onChange={e => setUser({...user, last_name: e.target.value})} value={user.last_name} />
+                    <label htmlFor="lastName">Last Name: </label>
+                    <input type="text" name="lastName" onChange={e => setUser({...user, lastName: e.target.value})} value={user.lastName} />
                 </div>
                 <div class="form">
                     <label htmlFor="email">Email: </label>
@@ -52,7 +48,7 @@ const SignUp = () => {
                 </div>
                 <div class="form">
                     <label htmlFor="street_address">Street Address: </label>
-                    <input type="text" name="street_address" onChange={e => setUser({...SignUp, last_name: e.target.value})} value={user.street_address} />
+                    <input type="text" name="street_address" onChange={e => setUser({...SignUp, streetAddress: e.target.value})} value={user.streetAddress} />
                 </div>
                 <div class="form">
                     <label htmlFor="city">City: </label>
@@ -67,7 +63,7 @@ const SignUp = () => {
                     <input type="number" name="zipcode" onChange={e => setUser({...user, zipcode: e.target.value})} value={user.zipcode} />
                 </div>
                 <div class="form">
-                    <input type="submit" value="user" />
+                    <input type="submit" value="Sign Up!" />
                 </div>
                 
             </form>

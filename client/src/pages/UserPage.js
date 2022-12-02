@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import LoginForm from '../components/LoginForm'
+import User from '../utils/seeds/Users'
 
 const UserPage = () => {
 
@@ -13,17 +14,26 @@ const UserPage = () => {
 
     const Login = (details) => {
         console.log(details)
-
-        if (details.email === admin.email && details.password === admin.password){
-            console.log('LoggedIn!')
-            setUser({
-                email:details.email,
-                loggedIn:true
-            })
-        }else{
-            console.log('details dont match')
-            setError("User Not Found")
-        }
+        var i = User.length
+        while(i --){
+            if (details.email === User[i].email && details.password === User[i].password){
+                console.log('LoggedIn!')
+                setUser({
+                    firstName: User[i].firstName,
+                    lastName: User[1].lastName,
+                    streetAddress: User[i].streetAddress,
+                    city:User[i].city,
+                    state: User[i].state,
+                    zipcode: User[i].zipcode,
+                    phone: User[i].phone,
+                    email:User[i].email,
+                    loggedIn:true
+                })
+                console.log('user', user)
+            }else{
+                console.log('details dont match')
+                setError("User Not Found")
+            }}
     }
 
     const Logout =() => {
