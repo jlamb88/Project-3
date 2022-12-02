@@ -8,7 +8,6 @@ import UserPage from './pages/UserPage';
 import About from './pages/About';
 // import SignUp from './pages/SignUp';
 
-
 //CSS
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,9 +20,7 @@ import Cancel from './pages/Cancel';
 import CartProvider from './CartContext';
 import NavComponent from './components/Navbar/Navbar';
 
-
-
-function App(details) {
+function App() {
   return (
     <div className='bg-parent'>
       <CartProvider>
@@ -31,16 +28,14 @@ function App(details) {
           <NavComponent></NavComponent>
           <BrowserRouter>
             <Routes>
-              <Route path='/' element={<Home />}></Route>
-              <Route path='/store' element={<Store />}></Route>
-              <Route path='/success' element={<Success />}></Route>
-              <Route path='/cancel' element={<Cancel />}></Route>
-              <Route path='/store' element={<Store />}></Route>
-              <Route path='/user' element={<UserPage />}></Route>
+              <Route path='/' element={<Home />} />
+              <Route path='/store' element={<Store />} />
+              <Route path='/success' element={<Success />} />
+              <Route path='/cancel' element={<Cancel />} />
+              <Route path='/user' element={<UserPage />} />
               {/* <Route path='/signup' element={<SignUp />} /> */}
-              <Route path='/about' element={<About />}></Route>
+              <Route path='/about' element={<About />} />
             </Routes>
-
           </BrowserRouter>
         </Container>
       </CartProvider>
